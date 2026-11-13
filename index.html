@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Aspirasi MPK SMANTSA - Musyawarah Perwakilan Kelas</title>
-    <link rel="icon" type="image/x-icon" href="LOGO MPK SMANTSA.ico">
+    <link rel="icon" href="LOGO MPK SMANTSA.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -325,7 +325,7 @@
                             <i class="fa-solid fa-lock-open"></i> <span>MODE PENGURUS AKTIF</span>
                         </span>
                         <h2 class="font-heading text-2xl font-extrabold text-white">Kelola & Tanggapi Aspirasi</h2>
-                        <p class="text-xs text-zinc-400 mt-1">Ubah status progres dan berikan tanggapan resmi MPK yang akan tampil di halaman publik.</p>
+                        <p class="text-xs text-zinc-400 mt-1">Ubah status progres, berikan tanggapan resmi, atau hapus aspirasi yang masuk.</p>
                     </div>
                     <button onclick="logoutAdmin()" class="px-4 py-2 rounded-xl bg-red-500/15 border border-red-500/30 text-red-400 hover:bg-red-500/25 text-xs font-bold transition self-start sm:self-auto">
                         <i class="fa-solid fa-right-from-bracket mr-1"></i> Keluar Mode Pengurus
@@ -356,8 +356,8 @@
 
     <!-- SCRIPT UTAMA -->
     <script>
-        const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbywthWCpXF4wkLKZMlqjfTcQD-rzqQLwQ93AM7V2Ry3uZytLeyk_oMj53So_ShZFkyp/exec";
-        const ADMIN_PIN = "stankastinki"; // PIN Login Pengurus MPK (bisa kamu ubah sesuka hati)
+        const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzLKlB-jym8rjNGTouUWOPKA3gwRLPHyBCthbX7R5IXlc6G2QwRIudIfT9VDXxjWhci/exec";
+        const ADMIN_PIN = "stankastinki"; // PIN Login Pengurus MPK
 
         const daftarKelas = [];
         ['X', 'XI', 'XII'].forEach(tingkat => {
@@ -375,14 +375,12 @@
                 qrSelect.innerHTML += `<option value="${k}">Kelas ${k}</option>`;
             });
 
-            // Auto pilih kelas jika dibuka dari scan QR/NFC (?kelas=XI-1)
             const urlParams = new URLSearchParams(window.location.search);
             const kelasParam = urlParams.get('kelas');
             if (kelasParam && daftarKelas.includes(kelasParam)) {
                 selectKelas.value = kelasParam;
             }
 
-            // Cek apakah pengurus sudah login sebelumnya
             if (sessionStorage.getItem('mpk_admin_logged') === 'true') {
                 document.getElementById('nav-admin').classList.remove('hidden');
                 document.getElementById('nav-admin').classList.add('flex');
@@ -409,7 +407,6 @@
             }
         }
 
-        // Login & Logout Pengurus
         function promptAdminLogin() {
             if (sessionStorage.getItem('mpk_admin_logged') === 'true') {
                 switchTab('admin');
@@ -530,7 +527,6 @@
             switchTab('publik');
         }
 
-        // Fungsi Pengurus Menyimpan Status & Balasan Resmi
         async function saveAdminResponse(index) {
             const data = getAspirations();
             const item = data[index];
@@ -561,6 +557,34 @@
             } catch (err) {
                 console.error("Gagal update:", err);
                 showToast('Gagal menyinkronkan ke server.');
+            }
+        }
+
+        async function deleteAspiration(index) {
+            if (!confirm("Yakin ingin menghapus aspirasi ini dari sistem?")) return;
+            
+            const data = getAspirations();
+            const item = data[index];
+            
+            data.splice(index, 1);
+            saveAspirations(data);
+            renderPublicList();
+            renderAdminList();
+            showToast('Aspirasi berhasil dihapus');
+
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: "delete",
+                        timestamp: item.timestamp,
+                        message: item.rawMessage
+                    })
+                });
+            } catch (err) {
+                console.error("Gagal menghapus di server:", err);
             }
         }
 
@@ -657,13 +681,16 @@
                                 <option value="Selesai" ${item.status === 'Selesai' ? 'selected' : ''}>✅ Selesai / Ditindaklanjuti</option>
                             </select>
                         </div>
-                        <div class="md:col-span-2 flex gap-2">
+                        <div class="md:col-span-2 flex gap-2 items-center">
                             <div class="flex-1">
-                                <label class="block text-[11px] font-bold text-zinc-400 mb-1">Tanggapan Resmi MPK (Tampil ke Siswa):</label>
-                                <input type="text" id="replyInput-${idx}" value="${item.reply || ''}" placeholder="Tulis hasil rapat / tindak lanjut MPK..." class="w-full bg-cardBg border border-zinc-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none input-glow">
+                                <label class="block text-[11px] font-bold text-zinc-400 mb-1">Tanggapan Resmi MPK:</label>
+                                <input type="text" id="replyInput-${idx}" value="${item.reply || ''}" placeholder="Tulis hasil rapat / tindak lanjut..." class="w-full bg-cardBg border border-zinc-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none input-glow">
                             </div>
                             <button onclick="saveAdminResponse(${idx})" class="px-4 py-2 rounded-xl gold-gradient-bg text-black font-heading font-bold text-xs self-end hover:brightness-105 transition">
                                 Simpan
+                            </button>
+                            <button onclick="deleteAspiration(${idx})" class="px-3 py-2 rounded-xl bg-red-500/15 border border-red-500/30 text-red-400 hover:bg-red-500/25 text-xs font-bold self-end transition" title="Hapus Aspirasi">
+                                <i class="fa-solid fa-trash"></i>
                             </button>
                         </div>
                     </div>
