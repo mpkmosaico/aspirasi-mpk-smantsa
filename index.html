@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Aspirasi MPK SMANTSA - Musyawarah Perwakilan Kelas</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Outfit & Plus Jakarta Sans (Modern Gen-Z Typography) -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -22,7 +19,6 @@
                             400: '#facc15', 500: '#eab308', 600: '#ca8a04', 700: '#a16207',
                             800: '#854d0e', 900: '#713f12',
                         },
-                        luxGold: '#d4af37',
                         darkBg: '#09090b',
                         cardBg: '#121215',
                         surface: '#18181b'
@@ -45,10 +41,6 @@
         .input-glow:focus { border-color: #eab308; box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15); }
         .pilar-radio:checked + .pilar-card { border-color: #eab308; background: linear-gradient(180deg, rgba(234, 179, 8, 0.14) 0%, rgba(18, 18, 21, 0.95) 100%); box-shadow: 0 8px 25px -5px rgba(234, 179, 8, 0.25); }
         .pilar-radio:checked + .pilar-card .pilar-check { opacity: 1; transform: scale(1); }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #09090b; }
-        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 999px; }
-        ::-webkit-scrollbar-thumb:hover { background: #eab308; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-black">
@@ -59,8 +51,8 @@
     <header class="sticky top-0 z-40 bg-darkBg/85 backdrop-blur-xl border-b border-zinc-800/80">
         <div class="max-w-5xl mx-auto px-4 py-3.5 flex flex-col md:flex-row items-center justify-between gap-3">
             <div class="flex items-center space-x-3.5 w-full md:w-auto justify-between md:justify-start">
-                <div class="flex items-center space-x-3">
-                    <div class="relative w-12 h-12 rounded-2xl bg-surface border border-gold-500/40 flex items-center justify-center shadow-lg overflow-hidden group p-1">
+                <div class="flex items-center space-x-3.5">
+                    <div class="relative w-14 h-14 rounded-2xl bg-surface border border-gold-500/40 flex items-center justify-center shadow-lg overflow-hidden group p-0.5">
                         <img src="LOGO MPK SMANTSA.png" alt="Logo MPK SMANTSA" class="w-full h-full object-contain group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100x100/09090b/eab308?text=MPK'">
                     </div>
                     <div>
@@ -87,6 +79,10 @@
                         <i class="fa-solid fa-nfc-symbol fa-wifi"></i>
                         <span>Kartu NFC & QR</span>
                     </button>
+                    <button onclick="switchTab('admin')" id="nav-admin" class="hidden flex-1 md:flex-none px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all items-center justify-center space-x-1.5 text-gold-400 hover:text-white">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Panel Pengurus</span>
+                    </button>
                 </nav>
             </div>
         </div>
@@ -99,7 +95,6 @@
         <section id="tab-kirim" class="space-y-6">
             <div class="relative rounded-3xl bg-gradient-to-br from-surface via-cardBg to-black border border-gold-500/25 p-6 sm:p-8 overflow-hidden shadow-2xl">
                 <div class="absolute -right-8 -top-8 w-44 h-44 bg-gold-500/10 triangle-clip pointer-events-none"></div>
-                <div class="absolute right-24 -bottom-10 w-32 h-32 border border-gold-500/15 triangle-down-clip pointer-events-none"></div>
                 <div class="relative z-10 max-w-2xl">
                     <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold mb-3">
                         <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
@@ -121,7 +116,7 @@
                     </label>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-3">
                         <label class="cursor-pointer relative">
-                            <input type="radio" name="pilar" value="ASKO" class="peer sr-only pilar-radio" required checked onchange="updateSubKategori()">
+                            <input type="radio" name="pilar" value="ASKO" class="peer sr-only pilar-radio" required checked>
                             <div class="pilar-card h-full rounded-2xl bg-surface border border-zinc-800 p-4 transition-all hover:border-gold-500/50">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="px-2.5 py-1 rounded-lg bg-gold-500/15 text-gold-400 font-heading font-extrabold text-xs">ASKO</span>
@@ -132,7 +127,7 @@
                             </div>
                         </label>
                         <label class="cursor-pointer relative">
-                            <input type="radio" name="pilar" value="ASPOSIS" class="peer sr-only pilar-radio" onchange="updateSubKategori()">
+                            <input type="radio" name="pilar" value="ASPOSIS" class="peer sr-only pilar-radio">
                             <div class="pilar-card h-full rounded-2xl bg-surface border border-zinc-800 p-4 transition-all hover:border-gold-500/50">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 font-heading font-extrabold text-xs">ASPOSIS</span>
@@ -143,7 +138,7 @@
                             </div>
                         </label>
                         <label class="cursor-pointer relative">
-                            <input type="radio" name="pilar" value="ASPIKA" class="peer sr-only pilar-radio" onchange="updateSubKategori()">
+                            <input type="radio" name="pilar" value="ASPIKA" class="peer sr-only pilar-radio">
                             <div class="pilar-card h-full rounded-2xl bg-surface border border-zinc-800 p-4 transition-all hover:border-gold-500/50">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="px-2.5 py-1 rounded-lg bg-yellow-500/15 text-yellow-300 font-heading font-extrabold text-xs">ASPIKA</span>
@@ -162,15 +157,11 @@
                             Asal Kelas (SMANTSA) <span class="text-gold-500">*</span>
                         </label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gold-500 pointer-events-none">
-                                <i class="fa-solid fa-door-open"></i>
-                            </span>
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gold-500 pointer-events-none"><i class="fa-solid fa-door-open"></i></span>
                             <select id="kelas" required class="w-full bg-surface border border-zinc-700 rounded-xl pl-10 pr-9 py-3 text-sm text-white focus:outline-none input-glow appearance-none cursor-pointer">
                                 <option value="" disabled selected>Pilih Kelas Kamu...</option>
                             </select>
-                            <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-400 pointer-events-none">
-                                <i class="fa-solid fa-chevron-down text-xs"></i>
-                            </span>
+                            <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-400 pointer-events-none"><i class="fa-solid fa-chevron-down text-xs"></i></span>
                         </div>
                     </div>
 
@@ -185,9 +176,7 @@
                             </label>
                         </div>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gold-500 pointer-events-none">
-                                <i class="fa-solid fa-user-secret"></i>
-                            </span>
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gold-500 pointer-events-none"><i class="fa-solid fa-user-secret"></i></span>
                             <input type="text" id="nama" placeholder="Boleh dikosongkan jika ingin rahasia" class="w-full bg-surface border border-zinc-700 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none input-glow transition-all">
                         </div>
                     </div>
@@ -199,9 +188,7 @@
                             Bidang / Kategori Rincian <span class="text-gold-500">*</span>
                         </label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gold-500 pointer-events-none">
-                                <i class="fa-solid fa-tags"></i>
-                            </span>
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gold-500 pointer-events-none"><i class="fa-solid fa-tags"></i></span>
                             <select id="subKategori" required class="w-full bg-surface border border-zinc-700 rounded-xl pl-10 pr-9 py-3 text-sm text-white focus:outline-none input-glow appearance-none cursor-pointer">
                                 <option value="Sarana & Prasarana Sekolah">Sarana & Prasarana Sekolah</option>
                                 <option value="Akademik & Kurikulum">Akademik & Kurikulum</option>
@@ -211,9 +198,7 @@
                                 <option value="Kebijakan & Tata Tertib">Kebijakan & Tata Tertib</option>
                                 <option value="Lainnya">Lainnya</option>
                             </select>
-                            <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-400 pointer-events-none">
-                                <i class="fa-solid fa-chevron-down text-xs"></i>
-                            </span>
+                            <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-400 pointer-events-none"><i class="fa-solid fa-chevron-down text-xs"></i></span>
                         </div>
                     </div>
 
@@ -222,9 +207,7 @@
                             Subjek / Judul Singkat <span class="text-gold-500">*</span>
                         </label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gold-500 pointer-events-none">
-                                <i class="fa-solid fa-bolt"></i>
-                            </span>
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-gold-500 pointer-events-none"><i class="fa-solid fa-bolt"></i></span>
                             <input type="text" id="judul" required placeholder="Contoh: Proyektor kelas XI-4 buram" class="w-full bg-surface border border-zinc-700 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none input-glow transition-all">
                         </div>
                     </div>
@@ -255,10 +238,16 @@
                                 <i class="fa-solid fa-rotate-right"></i>
                             </button>
                         </div>
-                        <p class="text-xs sm:text-sm text-zinc-400 mt-1">Pantau progres aspirasi siswa dari seluruh perangkat secara real-time!</p>
+                        <p class="text-xs sm:text-sm text-zinc-400 mt-1">Pantau status tindak lanjut dan tanggapan resmi dari pengurus MPK SMANTSA!</p>
                     </div>
                     
                     <div class="flex flex-wrap items-center gap-2">
+                        <select id="filterStatus" onchange="renderPublicList()" class="bg-surface border border-zinc-700 rounded-xl px-3.5 py-2 text-xs font-semibold text-white focus:outline-none input-glow cursor-pointer">
+                            <option value="Semua">Semua Status</option>
+                            <option value="Menunggu">Menunggu</option>
+                            <option value="Diproses">Sedang Diproses</option>
+                            <option value="Selesai">Selesai / Ditindaklanjuti</option>
+                        </select>
                         <select id="filterPilar" onchange="renderPublicList()" class="bg-surface border border-zinc-700 rounded-xl px-3.5 py-2 text-xs font-semibold text-white focus:outline-none input-glow cursor-pointer">
                             <option value="Semua">Semua Pilar</option>
                             <option value="ASKO">ASKO (Sekolah)</option>
@@ -284,26 +273,21 @@
                         <i class="fa-solid fa-microchip mr-1"></i> SMART CLASSROOM MPK SMANTSA
                     </span>
                     <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-white">Generator Kartu NFC + QR (36 Kelas)</h2>
-                    <p class="text-xs sm:text-sm text-zinc-400 mt-1">Langkah-langkah pemasangan kartu pintar di seluruh 36 kelas SMA Negeri Tanjungsari.</p>
+                    <p class="text-xs sm:text-sm text-zinc-400 mt-1">Buat dan cetak kartu pintar untuk masing-masing kelas di SMA Negeri Tanjungsari.</p>
                 </div>
 
                 <div class="bg-surface border border-gold-500/30 rounded-2xl p-5 sm:p-6">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
                         <div class="space-y-4">
-                            <h3 class="font-heading font-bold text-lg text-white flex items-center space-x-2">
-                                <i class="fa-solid fa-wand-magic-sparkles text-gold-400"></i>
-                                <span>Generator Kartu Kelas SMANTSA</span>
-                            </h3>
                             <div>
                                 <label class="block text-xs font-bold text-zinc-300 mb-1.5">Pilih Kelas Target:</label>
-                                <select id="qrClassSelect" onchange="updateQrPreview()" class="w-full bg-cardBg border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none input-glow">
-                                </select>
+                                <select id="qrClassSelect" onchange="updateQrPreview()" class="w-full bg-cardBg border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none input-glow"></select>
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-zinc-300 mb-1.5">URL Website Portal MPK:</label>
-                                <input type="text" id="qrUrlInput" value="https://alazmigamaliel-commits.github.io/aspirasi-mpk-smantsa/" oninput="updateQrPreview()" class="w-full bg-cardBg border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-gold-300 focus:outline-none input-glow">
+                                <input type="text" id="qrUrlInput" value="https://alazmigamaliel-commits.github.io" oninput="updateQrPreview()" class="w-full bg-cardBg border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-gold-300 focus:outline-none input-glow">
                             </div>
-                            <div class="pt-2 flex flex-wrap gap-3">
+                            <div class="pt-2">
                                 <button onclick="window.print()" class="px-5 py-2.5 rounded-xl gold-gradient-bg text-black font-heading font-bold text-xs uppercase tracking-wider shadow hover:brightness-105 transition flex items-center space-x-2">
                                     <i class="fa-solid fa-print"></i>
                                     <span>Cetak Kartu Ini</span>
@@ -313,10 +297,8 @@
 
                         <div class="flex justify-center">
                             <div id="printableCardArea" class="w-72 bg-[#09090b] border-2 border-gold-500 rounded-3xl p-5 text-center shadow-2xl relative overflow-hidden">
-                                <div class="absolute top-3 left-3 w-3.5 h-3.5 gold-gradient-bg triangle-clip"></div>
-                                <div class="absolute top-3 right-3 w-3.5 h-3.5 gold-gradient-bg triangle-clip"></div>
                                 <div class="flex justify-center mb-1">
-                                    <img src="LOGO MPK SMANTSA_2.png" alt="Logo MPK" class="w-10 h-10 object-contain" onerror="this.src='https://placehold.co/100x100/09090b/eab308?text=MPK'">
+                                    <img src="LOGO MPK SMANTSA.png" alt="Logo MPK" class="w-12 h-12 object-contain" onerror="this.src='https://placehold.co/100x100/09090b/eab308?text=MPK'">
                                 </div>
                                 <div class="text-[10px] font-bold tracking-widest text-gold-400 uppercase">SMA NEGERI TANJUNGSARI</div>
                                 <h4 class="font-heading font-black text-xl text-white tracking-tight mt-0.5">PORTAL ASPIRASI</h4>
@@ -333,11 +315,36 @@
             </div>
         </section>
 
+        <!-- TAB 4: PANEL PENGURUS MPK (TERKUNCI PIN) -->
+        <section id="tab-admin" class="hidden space-y-6">
+            <div class="bg-cardBg border border-gold-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-800 pb-5">
+                    <div>
+                        <span class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-gold-500/15 text-gold-400 text-[11px] font-bold mb-1">
+                            <i class="fa-solid fa-lock-open"></i> <span>MODE PENGURUS AKTIF</span>
+                        </span>
+                        <h2 class="font-heading text-2xl font-extrabold text-white">Kelola & Tanggapi Aspirasi</h2>
+                        <p class="text-xs text-zinc-400 mt-1">Ubah status progres dan berikan tanggapan resmi MPK yang akan tampil di halaman publik.</p>
+                    </div>
+                    <button onclick="logoutAdmin()" class="px-4 py-2 rounded-xl bg-red-500/15 border border-red-500/30 text-red-400 hover:bg-red-500/25 text-xs font-bold transition self-start sm:self-auto">
+                        <i class="fa-solid fa-right-from-bracket mr-1"></i> Keluar Mode Pengurus
+                    </button>
+                </div>
+
+                <div id="adminListContainer" class="space-y-4"></div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-surface border-t border-zinc-800 py-6 mt-12 text-center text-xs text-zinc-500">
+    <!-- Footer dengan Akses Rahasia Pengurus -->
+    <footer class="bg-surface border-t border-zinc-800 py-6 mt-12 text-center text-xs text-zinc-500 space-y-2">
         <p>&copy; 2026 MPK SMA Negeri Tanjungsari • Kabinet Mosaico '26/27</p>
+        <p>
+            <button onclick="promptAdminLogin()" class="text-zinc-600 hover:text-gold-400 transition underline">
+                <i class="fa-solid fa-shield-halved mr-1"></i>Akses Pengurus MPK
+            </button>
+        </p>
     </footer>
 
     <!-- Toast Notification -->
@@ -346,15 +353,14 @@
         <span id="toastMsg">Berhasil!</span>
     </div>
 
-    <!-- SCRIPT UTAMA & INTEGRASI WEBHOOK -->
+    <!-- SCRIPT UTAMA -->
     <script>
-        const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzLKlB-jym8rjNGTouUWOPKA3gwRLPHyBCthbX7R5IXlc6G2QwRIudIfT9VDXxjWhci/exec";
+        const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbywthWCpXF4wkLKZMlqjfTcQD-rzqQLwQ93AM7V2Ry3uZytLeyk_oMj53So_ShZFkyp/exec";
+        const ADMIN_PIN = "stankastinki"; // PIN Login Pengurus MPK (bisa kamu ubah sesuka hati)
 
         const daftarKelas = [];
         ['X', 'XI', 'XII'].forEach(tingkat => {
-            for (let i = 1; i <= 12; i++) {
-                daftarKelas.push(`${tingkat}-${i}`);
-            }
+            for (let i = 1; i <= 12; i++) daftarKelas.push(`${tingkat}-${i}`);
         });
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -368,28 +374,73 @@
                 qrSelect.innerHTML += `<option value="${k}">Kelas ${k}</option>`;
             });
 
+            // Auto pilih kelas jika dibuka dari scan QR/NFC (?kelas=XI-1)
+            const urlParams = new URLSearchParams(window.location.search);
+            const kelasParam = urlParams.get('kelas');
+            if (kelasParam && daftarKelas.includes(kelasParam)) {
+                selectKelas.value = kelasParam;
+            }
+
+            // Cek apakah pengurus sudah login sebelumnya
+            if (sessionStorage.getItem('mpk_admin_logged') === 'true') {
+                document.getElementById('nav-admin').classList.remove('hidden');
+                document.getElementById('nav-admin').classList.add('flex');
+            }
+
             syncFromGoogleSheet();
             updateQrPreview();
         });
 
         function switchTab(tabId) {
-            ['kirim', 'publik', 'nfc'].forEach(id => {
-                document.getElementById(`tab-${id}`).classList.add('hidden');
-                document.getElementById(`nav-${id}`).className = "flex-1 md:flex-none px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center space-x-1.5 text-zinc-400 hover:text-white";
+            ['kirim', 'publik', 'nfc', 'admin'].forEach(id => {
+                const section = document.getElementById(`tab-${id}`);
+                const nav = document.getElementById(`nav-${id}`);
+                if (section) section.classList.add('hidden');
+                if (nav && !nav.classList.contains('hidden')) {
+                    nav.className = "flex-1 md:flex-none px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center space-x-1.5 text-zinc-400 hover:text-white";
+                }
             });
             document.getElementById(`tab-${tabId}`).classList.remove('hidden');
             document.getElementById(`nav-${tabId}`).className = "flex-1 md:flex-none px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center space-x-1.5 bg-gold-500 text-black shadow-md";
             
-            if(tabId === 'publik') {
+            if (tabId === 'publik' || tabId === 'admin') {
                 syncFromGoogleSheet();
             }
+        }
+
+        // Login & Logout Pengurus
+        function promptAdminLogin() {
+            if (sessionStorage.getItem('mpk_admin_logged') === 'true') {
+                switchTab('admin');
+                return;
+            }
+            const pin = prompt("Masukkan PIN Pengurus MPK SMANTSA:");
+            if (pin === ADMIN_PIN) {
+                sessionStorage.setItem('mpk_admin_logged', 'true');
+                const navAdmin = document.getElementById('nav-admin');
+                navAdmin.classList.remove('hidden');
+                navAdmin.classList.add('flex');
+                showToast('Selamat datang, Pengurus MPK!');
+                switchTab('admin');
+            } else if (pin !== null) {
+                alert("PIN salah! Akses ditolak.");
+            }
+        }
+
+        function logoutAdmin() {
+            sessionStorage.removeItem('mpk_admin_logged');
+            const navAdmin = document.getElementById('nav-admin');
+            navAdmin.classList.add('hidden');
+            navAdmin.classList.remove('flex');
+            switchTab('publik');
+            showToast('Keluar dari Mode Pengurus');
         }
 
         function toggleAnonim() {
             const isAnonim = document.getElementById('anonimCheck').checked;
             const namaInput = document.getElementById('nama');
             namaInput.disabled = isAnonim;
-            namaInput.value = isAnonim ? '' : '';
+            namaInput.value = '';
             namaInput.placeholder = isAnonim ? 'Dikirim sebagai Anonim' : 'Boleh dikosongkan jika ingin rahasia';
         }
 
@@ -402,66 +453,66 @@
             localStorage.setItem('mpk_smantsa_aspirations_v2', JSON.stringify(data));
         }
 
-        // Fungsi Sinkronisasi Data dari Google Sheet ke Semua Perangkat
         async function syncFromGoogleSheet() {
             try {
                 const response = await fetch(WEBHOOK_URL);
                 const sheetData = await response.json();
                 
-                if (Array.isArray(sheetData) && sheetData.length > 0) {
+                if (Array.isArray(sheetData)) {
                     const formattedData = sheetData.map((item, index) => ({
-                        id: Date.now() + index,
+                        id: index,
                         pilar: item.category ? (item.category.includes('OSIS') ? 'ASPOSIS' : item.category.includes('MPK') ? 'ASPIKA' : 'ASKO') : 'ASKO',
                         name: item.name || "Anonim",
                         class: item.class || "-",
                         category: item.category || "Umum",
-                        judul: item.message ? item.message.split(' - ')[0] : 'Aspirasi Siswa',
-                        message: item.message || "-",
-                        timestamp: item.timestamp || new Date().toLocaleDateString('id-ID'),
-                        upvotes: 0
+                        judul: item.message && item.message.includes(' - ') ? item.message.split(' - ')[0] : 'Aspirasi Siswa',
+                        rawMessage: item.message || "-",
+                        displayMessage: item.message && item.message.includes(' - ') ? item.message.split(' - ').slice(1).join(' - ') : (item.message || "-"),
+                        timestamp: item.timestamp || "",
+                        status: item.status || "Menunggu",
+                        reply: item.reply || ""
                     })).reverse();
 
                     saveAspirations(formattedData);
                     renderPublicList();
+                    renderAdminList();
                 }
             } catch (error) {
-                console.error("Gagal sinkronisasi dengan Google Sheet:", error);
-                renderPublicList(); // Fallback ke data lokal jika offline
+                console.error("Gagal sinkronisasi:", error);
+                renderPublicList();
+                renderAdminList();
             }
         }
 
-        // Form Submit Kirim Aspirasi (Kirim ke Google Sheet & Local)
         async function handleFormSubmit(e) {
             e.preventDefault();
-            
             const pilar = document.querySelector('input[name="pilar"]:checked').value;
             const kelas = document.getElementById('kelas').value;
             const isAnonim = document.getElementById('anonimCheck').checked;
             const nama = isAnonim ? 'Anonim' : (document.getElementById('nama').value.trim() || 'Anonim');
             const subKategori = document.getElementById('subKategori').value;
-            const judul = document.getElementById('judul').value;
-            const pesan = document.getElementById('pesan').value;
+            const judul = document.getElementById('judul').value.trim();
+            const pesan = document.getElementById('pesan').value.trim();
             const timestamp = new Date().toLocaleString('id-ID');
+            const fullMessage = `${judul} - ${pesan}`;
 
             const payload = {
                 timestamp: timestamp,
                 name: nama,
                 class: kelas,
                 category: `${pilar} - ${subKategori}`,
-                message: `${judul} - ${pesan}`
+                message: fullMessage
             };
 
-            // Simpan lokal sementara
             const currentData = getAspirations();
             currentData.unshift({
-                id: Date.now(),
-                pilar, name: nama, class: kelas, category: subKategori, judul, message: pesan, timestamp, upvotes: 0
+                id: Date.now(), pilar, name: nama, class: kelas, category: `${pilar} - ${subKategori}`,
+                judul, rawMessage: fullMessage, displayMessage: pesan, timestamp, status: 'Menunggu', reply: ''
             });
             saveAspirations(currentData);
 
             showToast('Mengirim aspirasi ke server...');
 
-            // Kirim ke Google Sheet via Webhook (no-cors agar tidak error CORS)
             try {
                 await fetch(WEBHOOK_URL, {
                     method: 'POST',
@@ -470,29 +521,74 @@
                     body: JSON.stringify(payload)
                 });
             } catch (err) {
-                console.error("Gagal kirim background:", err);
+                console.error("Error:", err);
             }
 
             document.getElementById('aspirasiForm').reset();
-            showToast('Aspirasi berhasil dikirim dan disinkronkan!');
+            showToast('Aspirasi berhasil dikirim!');
             switchTab('publik');
+        }
+
+        // Fungsi Pengurus Menyimpan Status & Balasan Resmi
+        async function saveAdminResponse(index) {
+            const data = getAspirations();
+            const item = data[index];
+            const newStatus = document.getElementById(`statusSelect-${index}`).value;
+            const newReply = document.getElementById(`replyInput-${index}`).value.trim();
+
+            item.status = newStatus;
+            item.reply = newReply;
+            saveAspirations(data);
+
+            showToast('Menyimpan respon ke Google Sheet...');
+
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: "update",
+                        timestamp: item.timestamp,
+                        message: item.rawMessage,
+                        status: newStatus,
+                        reply: newReply
+                    })
+                });
+                showToast('Status & tanggapan berhasil dipublikasikan!');
+                renderPublicList();
+            } catch (err) {
+                console.error("Gagal update:", err);
+                showToast('Gagal menyinkronkan ke server.');
+            }
+        }
+
+        function getStatusBadge(status) {
+            if (status === 'Diproses') {
+                return `<span class="px-2.5 py-1 rounded-full bg-blue-500/15 text-blue-400 border border-blue-500/30 font-bold text-[11px] flex items-center space-x-1"><i class="fa-solid fa-spinner fa-spin"></i><span>Sedang Diproses</span></span>`;
+            } else if (status === 'Selesai') {
+                return `<span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-bold text-[11px] flex items-center space-x-1"><i class="fa-solid fa-circle-check"></i><span>Selesai / Ditindaklanjuti</span></span>`;
+            }
+            return `<span class="px-2.5 py-1 rounded-full bg-zinc-800 text-zinc-400 border border-zinc-700 font-bold text-[11px] flex items-center space-x-1"><i class="fa-regular fa-clock"></i><span>Menunggu</span></span>`;
         }
 
         function renderPublicList() {
             const container = document.getElementById('publicListContainer');
             const filterPilar = document.getElementById('filterPilar').value;
             const filterKelas = document.getElementById('filterKelas').value;
-            let data = getAspirations();
+            const filterStatus = document.getElementById('filterStatus').value;
+            const allData = getAspirations();
+            let data = [...allData];
 
             if (filterPilar !== 'Semua') data = data.filter(d => d.pilar === filterPilar);
             if (filterKelas !== 'Semua') data = data.filter(d => d.class === filterKelas);
+            if (filterStatus !== 'Semua') data = data.filter(d => d.status === filterStatus);
 
-            // Update stats
             document.getElementById('statsBar').innerHTML = `
-                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">Total Aspirasi</div><div class="text-xl font-heading font-black text-white mt-0.5">${getAspirations().length}</div></div>
-                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">ASKO (Sekolah)</div><div class="text-xl font-heading font-black text-gold-400 mt-0.5">${getAspirations().filter(d=>d.pilar==='ASKO').length}</div></div>
-                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">ASPOSIS (OSIS)</div><div class="text-xl font-heading font-black text-amber-300 mt-0.5">${getAspirations().filter(d=>d.pilar==='ASPOSIS').length}</div></div>
-                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">ASPIKA (MPK)</div><div class="text-xl font-heading font-black text-yellow-300 mt-0.5">${getAspirations().filter(d=>d.pilar==='ASPIKA').length}</div></div>
+                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">Total Aspirasi</div><div class="text-xl font-heading font-black text-white mt-0.5">${allData.length}</div></div>
+                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">Menunggu</div><div class="text-xl font-heading font-black text-zinc-300 mt-0.5">${allData.filter(d=>d.status==='Menunggu').length}</div></div>
+                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">Diproses</div><div class="text-xl font-heading font-black text-blue-400 mt-0.5">${allData.filter(d=>d.status==='Diproses').length}</div></div>
+                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">Selesai</div><div class="text-xl font-heading font-black text-emerald-400 mt-0.5">${allData.filter(d=>d.status==='Selesai').length}</div></div>
             `;
 
             if (data.length === 0) {
@@ -502,17 +598,73 @@
 
             container.innerHTML = data.map(item => `
                 <div class="bg-surface border border-zinc-800 rounded-2xl p-5 space-y-3 shadow-md">
-                    <div class="flex items-center justify-between text-xs">
+                    <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
                         <div class="flex items-center space-x-2">
                             <span class="px-2.5 py-0.5 rounded-lg bg-gold-500/10 text-gold-400 font-bold">${item.pilar}</span>
-                            <span class="text-zinc-400">• Kelas ${item.class}</span>
+                            <span class="text-zinc-300 font-semibold">Kelas ${item.class}</span>
                             <span class="text-zinc-500">• ${item.name}</span>
                         </div>
-                        <span class="text-zinc-500">${item.timestamp}</span>
+                        <div class="flex items-center space-x-2">
+                            ${getStatusBadge(item.status)}
+                            <span class="text-zinc-500 text-[11px]">${item.timestamp}</span>
+                        </div>
                     </div>
                     <div>
-                        <h4 class="font-heading font-bold text-white text-base">${item.judul || 'Aspirasi Siswa'}</h4>
-                        <p class="text-xs text-zinc-300 mt-1 leading-relaxed">${item.message}</p>
+                        <h4 class="font-heading font-bold text-white text-base">${item.judul}</h4>
+                        <p class="text-xs sm:text-sm text-zinc-300 mt-1 leading-relaxed">${item.displayMessage}</p>
+                    </div>
+                    ${item.reply ? `
+                        <div class="mt-3 p-3.5 rounded-xl bg-gold-500/10 border-l-4 border-gold-500 space-y-1">
+                            <div class="flex items-center space-x-1.5 text-xs font-heading font-bold text-gold-400">
+                                <i class="fa-solid fa-reply"></i>
+                                <span>Tanggapan Resmi MPK SMANTSA:</span>
+                            </div>
+                            <p class="text-xs text-zinc-200 leading-relaxed">${item.reply}</p>
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        function renderAdminList() {
+            const container = document.getElementById('adminListContainer');
+            const data = getAspirations();
+
+            if (data.length === 0) {
+                container.innerHTML = `<div class="text-center py-10 text-zinc-500">Belum ada data aspirasi masuk.</div>`;
+                return;
+            }
+
+            container.innerHTML = data.map((item, idx) => `
+                <div class="bg-surface border border-zinc-800 rounded-2xl p-5 space-y-4">
+                    <div class="flex flex-wrap justify-between items-start gap-2 border-b border-zinc-800 pb-3">
+                        <div>
+                            <span class="px-2 py-0.5 rounded bg-gold-500/15 text-gold-400 font-bold text-xs">${item.pilar}</span>
+                            <span class="text-xs font-bold text-white ml-1.5">Kelas ${item.class} (${item.name})</span>
+                            <h4 class="font-heading font-bold text-base text-white mt-1">${item.judul}</h4>
+                            <p class="text-xs text-zinc-400 mt-0.5">${item.displayMessage}</p>
+                        </div>
+                        <span class="text-[11px] text-zinc-500">${item.timestamp}</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
+                        <div>
+                            <label class="block text-[11px] font-bold text-zinc-400 mb-1">Status Tindak Lanjut:</label>
+                            <select id="statusSelect-${idx}" class="w-full bg-cardBg border border-zinc-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none input-glow">
+                                <option value="Menunggu" ${item.status === 'Menunggu' ? 'selected' : ''}>🕒 Menunggu</option>
+                                <option value="Diproses" ${item.status === 'Diproses' ? 'selected' : ''}>⚙️ Sedang Diproses</option>
+                                <option value="Selesai" ${item.status === 'Selesai' ? 'selected' : ''}>✅ Selesai / Ditindaklanjuti</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2 flex gap-2">
+                            <div class="flex-1">
+                                <label class="block text-[11px] font-bold text-zinc-400 mb-1">Tanggapan Resmi MPK (Tampil ke Siswa):</label>
+                                <input type="text" id="replyInput-${idx}" value="${item.reply || ''}" placeholder="Tulis hasil rapat / tindak lanjut MPK..." class="w-full bg-cardBg border border-zinc-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none input-glow">
+                            </div>
+                            <button onclick="saveAdminResponse(${idx})" class="px-4 py-2 rounded-xl gold-gradient-bg text-black font-heading font-bold text-xs self-end hover:brightness-105 transition">
+                                Simpan
+                            </button>
+                        </div>
                     </div>
                 </div>
             `).join('');
@@ -522,7 +674,6 @@
             const selectedClass = document.getElementById('qrClassSelect').value;
             const baseUrl = document.getElementById('qrUrlInput').value.trim();
             const fullUrl = `${baseUrl}/?kelas=${selectedClass}`;
-            
             document.getElementById('cardClassBadge').innerText = `KELAS ${selectedClass}`;
             document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(fullUrl)}`;
         }
