@@ -18,16 +18,9 @@
                 extend: {
                     colors: {
                         gold: {
-                            50: '#fefce8',
-                            100: '#fef9c3',
-                            200: '#fef08a',
-                            300: '#fde047',
-                            400: '#facc15',
-                            500: '#eab308', // Primary Gold
-                            600: '#ca8a04',
-                            700: '#a16207',
-                            800: '#854d0e',
-                            900: '#713f12',
+                            50: '#fefce8', 100: '#fef9c3', 200: '#fef08a', 300: '#fde047',
+                            400: '#facc15', 500: '#eab308', 600: '#ca8a04', 700: '#a16207',
+                            800: '#854d0e', 900: '#713f12',
                         },
                         luxGold: '#d4af37',
                         darkBg: '#09090b',
@@ -43,78 +36,31 @@
         }
     </script>
     <style>
-        body {
-            background-color: #09090b;
-            color: #f4f4f5;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-        }
-        h1, h2, h3, h4, .font-heading {
-            font-family: 'Outfit', sans-serif;
-        }
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #fef08a 0%, #eab308 50%, #ca8a04 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .gold-gradient-bg {
-            background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%);
-        }
-        .triangle-clip {
-            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-        }
-        .triangle-down-clip {
-            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-        }
-        .input-glow:focus {
-            border-color: #eab308;
-            box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15);
-        }
-        /* Radio Card Active Styling */
-        .pilar-radio:checked + .pilar-card {
-            border-color: #eab308;
-            background: linear-gradient(180deg, rgba(234, 179, 8, 0.14) 0%, rgba(18, 18, 21, 0.95) 100%);
-            box-shadow: 0 8px 25px -5px rgba(234, 179, 8, 0.25);
-        }
-        .pilar-radio:checked + .pilar-card .pilar-check {
-            opacity: 1;
-            transform: scale(1);
-        }
-        /* Custom Scrollbar */
+        body { background-color: #09090b; color: #f4f4f5; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Outfit', sans-serif; }
+        .gold-gradient-text { background: linear-gradient(135deg, #fef08a 0%, #eab308 50%, #ca8a04 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gold-gradient-bg { background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%); }
+        .triangle-clip { clip-path: polygon(50% 0%, 100% 100%, 0% 100%); }
+        .triangle-down-clip { clip-path: polygon(0% 0%, 100% 0%, 50% 100%); }
+        .input-glow:focus { border-color: #eab308; box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15); }
+        .pilar-radio:checked + .pilar-card { border-color: #eab308; background: linear-gradient(180deg, rgba(234, 179, 8, 0.14) 0%, rgba(18, 18, 21, 0.95) 100%); box-shadow: 0 8px 25px -5px rgba(234, 179, 8, 0.25); }
+        .pilar-radio:checked + .pilar-card .pilar-check { opacity: 1; transform: scale(1); }
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #09090b; }
         ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 999px; }
         ::-webkit-scrollbar-thumb:hover { background: #eab308; }
-        
-        @media print {
-            body * { visibility: hidden; }
-            #printableCardArea, #printableCardArea * { visibility: visible; }
-            #printableCardArea {
-                position: fixed;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                background: #09090b !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-black">
 
-    <!-- Top Gold Bar -->
     <div class="h-1.5 gold-gradient-bg w-full"></div>
 
     <!-- Navigation Header -->
     <header class="sticky top-0 z-40 bg-darkBg/85 backdrop-blur-xl border-b border-zinc-800/80">
         <div class="max-w-5xl mx-auto px-4 py-3.5 flex flex-col md:flex-row items-center justify-between gap-3">
-            
-            <!-- Brand Identity -->
             <div class="flex items-center space-x-3.5 w-full md:w-auto justify-between md:justify-start">
                 <div class="flex items-center space-x-3">
                     <div class="relative w-12 h-12 rounded-2xl bg-surface border border-gold-500/40 flex items-center justify-center shadow-lg overflow-hidden group p-1">
-                        <!-- Official MPK SMANTSA Triangular Logo Image -->
                         <img src="LOGO MPK SMANTSA_2.png" alt="Logo MPK SMANTSA" class="w-full h-full object-contain group-hover:scale-105 transition-transform" onerror="this.src='https://placehold.co/100x100/09090b/eab308?text=MPK'">
                     </div>
                     <div>
@@ -127,7 +73,6 @@
                 </div>
             </div>
 
-            <!-- Navigation Pills (Admin button removed from public view) -->
             <div class="flex items-center space-x-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
                 <nav class="flex items-center bg-surface p-1 rounded-2xl border border-zinc-800 w-full md:w-auto justify-between">
                     <button onclick="switchTab('kirim')" id="nav-kirim" class="flex-1 md:flex-none px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center space-x-1.5 bg-gold-500 text-black shadow-md">
@@ -150,16 +95,11 @@
     <!-- Main Container -->
     <main class="flex-grow max-w-5xl w-full mx-auto px-4 py-6 sm:py-8">
 
-        <!-- ========================================================= -->
-        <!-- TAB 1: FORM KIRIM ASPIRASI (SUARAKAN)                     -->
-        <!-- ========================================================= -->
+        <!-- TAB 1: FORM KIRIM ASPIRASI -->
         <section id="tab-kirim" class="space-y-6">
-            <!-- Hero Banner Card -->
             <div class="relative rounded-3xl bg-gradient-to-br from-surface via-cardBg to-black border border-gold-500/25 p-6 sm:p-8 overflow-hidden shadow-2xl">
-                <!-- Geometric Triangle Accents -->
                 <div class="absolute -right-8 -top-8 w-44 h-44 bg-gold-500/10 triangle-clip pointer-events-none"></div>
                 <div class="absolute right-24 -bottom-10 w-32 h-32 border border-gold-500/15 triangle-down-clip pointer-events-none"></div>
-
                 <div class="relative z-10 max-w-2xl">
                     <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold mb-3">
                         <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
@@ -174,49 +114,39 @@
                 </div>
             </div>
 
-            <!-- Main Form Card -->
             <form id="aspirasiForm" onsubmit="handleFormSubmit(event)" class="bg-cardBg border border-zinc-800/90 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
-                
-                <!-- Step 1: 3 Pilar Utama Aspirasi -->
                 <div>
                     <label class="block text-sm font-heading font-bold text-white mb-1">
                         1. Pilih Pilar Tujuan Aspirasi <span class="text-gold-500">*</span>
                     </label>
-                    <p class="text-xs text-zinc-400 mb-3">Tentukan kepada siapa aspirasi ini ditujukan:</p>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-                        <!-- ASKO -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-3">
                         <label class="cursor-pointer relative">
                             <input type="radio" name="pilar" value="ASKO" class="peer sr-only pilar-radio" required checked onchange="updateSubKategori()">
                             <div class="pilar-card h-full rounded-2xl bg-surface border border-zinc-800 p-4 transition-all hover:border-gold-500/50">
                                 <div class="flex items-center justify-between mb-2">
-                                    <span class="px-2.5 py-1 rounded-lg bg-gold-500/15 text-gold-400 font-heading font-extrabold text-xs tracking-wider">ASKO</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-gold-500/15 text-gold-400 font-heading font-extrabold text-xs">ASKO</span>
                                     <i class="fa-solid fa-circle-check text-gold-400 opacity-0 scale-75 transition-all pilar-check"></i>
                                 </div>
                                 <h3 class="font-heading font-bold text-white text-base">Aspirasi Sekolah</h3>
                                 <p class="text-xs text-zinc-400 mt-1">Fasilitas kelas, sarana prasarana, akademik, & kebijakan SMANTSA.</p>
                             </div>
                         </label>
-
-                        <!-- ASPOSIS -->
                         <label class="cursor-pointer relative">
                             <input type="radio" name="pilar" value="ASPOSIS" class="peer sr-only pilar-radio" onchange="updateSubKategori()">
                             <div class="pilar-card h-full rounded-2xl bg-surface border border-zinc-800 p-4 transition-all hover:border-gold-500/50">
                                 <div class="flex items-center justify-between mb-2">
-                                    <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 font-heading font-extrabold text-xs tracking-wider">ASPOSIS</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 font-heading font-extrabold text-xs">ASPOSIS</span>
                                     <i class="fa-solid fa-circle-check text-gold-400 opacity-0 scale-75 transition-all pilar-check"></i>
                                 </div>
                                 <h3 class="font-heading font-bold text-white text-base">Aspirasi OSIS</h3>
                                 <p class="text-xs text-zinc-400 mt-1">Program kerja OSIS, event sekolah, & kegiatan ekstrakurikuler.</p>
                             </div>
                         </label>
-
-                        <!-- ASPIKA -->
                         <label class="cursor-pointer relative">
                             <input type="radio" name="pilar" value="ASPIKA" class="peer sr-only pilar-radio" onchange="updateSubKategori()">
                             <div class="pilar-card h-full rounded-2xl bg-surface border border-zinc-800 p-4 transition-all hover:border-gold-500/50">
                                 <div class="flex items-center justify-between mb-2">
-                                    <span class="px-2.5 py-1 rounded-lg bg-yellow-500/15 text-yellow-300 font-heading font-extrabold text-xs tracking-wider">ASPIKA</span>
+                                    <span class="px-2.5 py-1 rounded-lg bg-yellow-500/15 text-yellow-300 font-heading font-extrabold text-xs">ASPIKA</span>
                                     <i class="fa-solid fa-circle-check text-gold-400 opacity-0 scale-75 transition-all pilar-check"></i>
                                 </div>
                                 <h3 class="font-heading font-bold text-white text-base">Aspirasi MPK</h3>
@@ -226,9 +156,7 @@
                     </div>
                 </div>
 
-                <!-- Step 2: Identitas Pengirim (Kelas & Nama Opsional) -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-zinc-800/80">
-                    <!-- Pilihan Kelas SMANTSA -->
                     <div>
                         <label for="kelas" class="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2">
                             Asal Kelas (SMANTSA) <span class="text-gold-500">*</span>
@@ -239,7 +167,6 @@
                             </span>
                             <select id="kelas" required class="w-full bg-surface border border-zinc-700 rounded-xl pl-10 pr-9 py-3 text-sm text-white focus:outline-none input-glow appearance-none cursor-pointer">
                                 <option value="" disabled selected>Pilih Kelas Kamu...</option>
-                                <!-- Populated via JS for X-1..12, XI-1..12, XII-1..12 -->
                             </select>
                             <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-400 pointer-events-none">
                                 <i class="fa-solid fa-chevron-down text-xs"></i>
@@ -247,7 +174,6 @@
                         </div>
                     </div>
 
-                    <!-- Nama Pengirim (Opsional / Anonim) -->
                     <div>
                         <div class="flex items-center justify-between mb-2">
                             <label for="nama" class="block text-xs font-bold uppercase tracking-wider text-zinc-300">
@@ -267,9 +193,7 @@
                     </div>
                 </div>
 
-                <!-- Step 3: Bidang / Sub-Kategori & Subjek -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <!-- Sub Kategori -->
                     <div>
                         <label for="subKategori" class="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2">
                             Bidang / Kategori Rincian <span class="text-gold-500">*</span>
@@ -293,7 +217,6 @@
                         </div>
                     </div>
 
-                    <!-- Subjek Singkat -->
                     <div>
                         <label for="judul" class="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2">
                             Subjek / Judul Singkat <span class="text-gold-500">*</span>
@@ -307,7 +230,6 @@
                     </div>
                 </div>
 
-                <!-- Step 4: Isi Aspirasi & Perasaan -->
                 <div>
                     <label for="pesan" class="block text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2">
                         Isi Aspirasi & Perasaan Kamu <span class="text-gold-500">*</span>
@@ -315,7 +237,6 @@
                     <textarea id="pesan" required rows="4" placeholder="Ceritakan detail aspirasi, keluhan, atau ide kerenmu di sini..." class="w-full bg-surface border border-zinc-700 rounded-2xl p-4 text-sm text-white placeholder-zinc-500 focus:outline-none input-glow transition-all resize-none"></textarea>
                 </div>
 
-                <!-- Submit CTA -->
                 <button type="submit" class="w-full gold-gradient-bg text-black font-heading font-extrabold text-sm sm:text-base uppercase tracking-wider py-4 rounded-2xl shadow-lg hover:shadow-gold-500/30 hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center space-x-2">
                     <span>Kirim Aspirasi ke MPK SMANTSA</span>
                     <i class="fa-solid fa-arrow-right"></i>
@@ -323,52 +244,39 @@
             </form>
         </section>
 
-        <!-- ========================================================= -->
-        <!-- TAB 2: ASPIRASI PUBLIK & UPVOTE                           -->
-        <!-- ========================================================= -->
+        <!-- TAB 2: ASPIRASI PUBLIK -->
         <section id="tab-publik" class="hidden space-y-6">
             <div class="bg-cardBg border border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-zinc-800 pb-5">
                     <div>
                         <div class="flex items-center space-x-2">
                             <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-white">Aspirasi Publik SMANTSA</h2>
-                            <button onclick="renderPublicList(); showToast('Data berhasil dimuat ulang!');" class="p-2 rounded-xl bg-surface border border-zinc-700 hover:border-gold-500 text-gold-400 text-xs flex items-center space-x-1 transition" title="Muat Ulang Data">
+                            <button onclick="syncFromGoogleSheet(); showToast('Data berhasil disinkronkan!');" class="p-2 rounded-xl bg-surface border border-zinc-700 hover:border-gold-500 text-gold-400 text-xs flex items-center space-x-1 transition" title="Muat Ulang Data">
                                 <i class="fa-solid fa-rotate-right"></i>
                             </button>
                         </div>
-                        <p class="text-xs sm:text-sm text-zinc-400 mt-1">Pantau progres aspirasi siswa dan berikan <span class="text-gold-400 font-semibold">Upvote (Setuju)</span> pada aspirasi yang kamu dukung!</p>
+                        <p class="text-xs sm:text-sm text-zinc-400 mt-1">Pantau progres aspirasi siswa dari seluruh perangkat secara real-time!</p>
                     </div>
                     
-                    <!-- Filters -->
                     <div class="flex flex-wrap items-center gap-2">
                         <select id="filterPilar" onchange="renderPublicList()" class="bg-surface border border-zinc-700 rounded-xl px-3.5 py-2 text-xs font-semibold text-white focus:outline-none input-glow cursor-pointer">
-                            <option value="Semua">Semua Pilar (ASKO/ASPOSIS/ASPIKA)</option>
+                            <option value="Semua">Semua Pilar</option>
                             <option value="ASKO">ASKO (Sekolah)</option>
                             <option value="ASPOSIS">ASPOSIS (OSIS)</option>
                             <option value="ASPIKA">ASPIKA (MPK)</option>
                         </select>
                         <select id="filterKelas" onchange="renderPublicList()" class="bg-surface border border-zinc-700 rounded-xl px-3.5 py-2 text-xs font-semibold text-white focus:outline-none input-glow cursor-pointer">
                             <option value="Semua">Semua Kelas</option>
-                            <!-- Populated via JS -->
                         </select>
                     </div>
                 </div>
 
-                <!-- Summary Stats Strip -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="statsBar">
-                    <!-- Dynamic stats -->
-                </div>
-
-                <!-- Feed Container -->
-                <div id="publicListContainer" class="space-y-4">
-                    <!-- Dynamic cards -->
-                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="statsBar"></div>
+                <div id="publicListContainer" class="space-y-4"></div>
             </div>
         </section>
 
-        <!-- ========================================================= -->
-        <!-- TAB 3: PANDUAN KARTU NFC & QR 36 KELAS SMANTSA            -->
-        <!-- ========================================================= -->
+        <!-- TAB 3: KARTU NFC & QR -->
         <section id="tab-nfc" class="hidden space-y-6">
             <div class="bg-cardBg border border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
                 <div class="border-b border-zinc-800 pb-5">
@@ -376,81 +284,43 @@
                         <i class="fa-solid fa-microchip mr-1"></i> SMART CLASSROOM MPK SMANTSA
                     </span>
                     <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-white">Generator Kartu NFC + QR (36 Kelas)</h2>
-                    <p class="text-xs sm:text-sm text-zinc-400 mt-1">Langkah-langkah pemasangan kartu pintar di seluruh 36 kelas SMA Negeri Tanjungsari (X-1 s.d. XII-12).</p>
+                    <p class="text-xs sm:text-sm text-zinc-400 mt-1">Langkah-langkah pemasangan kartu pintar di seluruh 36 kelas SMA Negeri Tanjungsari.</p>
                 </div>
 
-                <!-- Step by Step Implementation Guide -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-surface border border-zinc-800 rounded-2xl p-5 space-y-2.5">
-                        <div class="w-9 h-9 rounded-xl gold-gradient-bg text-black font-heading font-black flex items-center justify-center">1</div>
-                        <h3 class="font-heading font-bold text-white text-base">Hosting Website Ini</h3>
-                        <p class="text-xs text-zinc-400 leading-relaxed">Upload file HTML portal MPK ini ke layanan gratis seperti <strong>Vercel, Netlify, atau GitHub Pages</strong> agar mendapatkan link resmi (misal: <code class="text-gold-400">mpk-smantsa.vercel.app</code>).</p>
-                    </div>
-                    <div class="bg-surface border border-zinc-800 rounded-2xl p-5 space-y-2.5">
-                        <div class="w-9 h-9 rounded-xl gold-gradient-bg text-black font-heading font-black flex items-center justify-center">2</div>
-                        <h3 class="font-heading font-bold text-white text-base">Siapkan 36 Stiker NFC</h3>
-                        <p class="text-xs text-zinc-400 leading-relaxed">Beli 36 pcs stiker <strong>NFC NTAG215</strong> (±Rp2.000/pcs). Gunakan aplikasi HP <strong>NFC Tools</strong> &rarr; pilih <em>Write &rarr; Add a record &rarr; URL</em> &rarr; tempelkan ke stiker untuk masing-masing kelas.</p>
-                    </div>
-                    <div class="bg-surface border border-zinc-800 rounded-2xl p-5 space-y-2.5">
-                        <div class="w-9 h-9 rounded-xl gold-gradient-bg text-black font-heading font-black flex items-center justify-center">3</div>
-                        <h3 class="font-heading font-bold text-white text-base">Cetak & Tempel di Kelas</h3>
-                        <p class="text-xs text-zinc-400 leading-relaxed">Cetak kartu QR di bawah ini untuk tiap kelas (laminasi doff), lalu tempelkan stiker NFC tepat di bagian belakang logo segitiga tengah kartu (hindari menempel langsung di besi/logam).</p>
-                    </div>
-                </div>
-
-                <!-- Interactive Card Generator for 36 Classes -->
                 <div class="bg-surface border border-gold-500/30 rounded-2xl p-5 sm:p-6">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-                        <!-- Controls -->
                         <div class="space-y-4">
                             <h3 class="font-heading font-bold text-lg text-white flex items-center space-x-2">
                                 <i class="fa-solid fa-wand-magic-sparkles text-gold-400"></i>
                                 <span>Generator Kartu Kelas SMANTSA</span>
                             </h3>
-                            <p class="text-xs text-zinc-400">Pilih kelas dan masukkan URL website MPK yang sudah di-online-kan untuk membuat kartu QR + NFC otomatis siap cetak.</p>
-                            
                             <div>
-                                <label class="block text-xs font-bold text-zinc-300 mb-1.5">Pilih Kelas Target (1 dari 36 Kelas):</label>
+                                <label class="block text-xs font-bold text-zinc-300 mb-1.5">Pilih Kelas Target:</label>
                                 <select id="qrClassSelect" onchange="updateQrPreview()" class="w-full bg-cardBg border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none input-glow">
-                                    <!-- Populated via JS -->
                                 </select>
                             </div>
-
                             <div>
                                 <label class="block text-xs font-bold text-zinc-300 mb-1.5">URL Website Portal MPK:</label>
-                                <input type="text" id="qrUrlInput" value="https://aspirasi-mpk-smantsa.vercel.app" oninput="updateQrPreview()" class="w-full bg-cardBg border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-gold-300 focus:outline-none input-glow">
-                                <p class="text-[11px] text-zinc-500 mt-1">*Parameter kelas otomatis ditambahkan ke link (contoh: <code>?kelas=XI-1</code>).</p>
+                                <input type="text" id="qrUrlInput" value="https://alazmigamaliel-commits.github.io/aspirasi-mpk-smantsa/" oninput="updateQrPreview()" class="w-full bg-cardBg border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-gold-300 focus:outline-none input-glow">
                             </div>
-
                             <div class="pt-2 flex flex-wrap gap-3">
                                 <button onclick="window.print()" class="px-5 py-2.5 rounded-xl gold-gradient-bg text-black font-heading font-bold text-xs uppercase tracking-wider shadow hover:brightness-105 transition flex items-center space-x-2">
                                     <i class="fa-solid fa-print"></i>
                                     <span>Cetak Kartu Ini</span>
                                 </button>
-                                <button onclick="copyClassLink()" class="px-4 py-2.5 rounded-xl bg-cardBg border border-zinc-700 hover:border-gold-500 text-zinc-200 font-semibold text-xs transition flex items-center space-x-2">
-                                    <i class="fa-solid fa-copy text-gold-400"></i>
-                                    <span>Salin Link untuk NFC Tools</span>
-                                </button>
                             </div>
                         </div>
 
-                        <!-- Live Printable Card Preview -->
                         <div class="flex justify-center">
                             <div id="printableCardArea" class="w-72 bg-[#09090b] border-2 border-gold-500 rounded-3xl p-5 text-center shadow-2xl relative overflow-hidden">
-                                <!-- Corner Triangles -->
                                 <div class="absolute top-3 left-3 w-3.5 h-3.5 gold-gradient-bg triangle-clip"></div>
                                 <div class="absolute top-3 right-3 w-3.5 h-3.5 gold-gradient-bg triangle-clip"></div>
-                                
                                 <div class="flex justify-center mb-1">
                                     <img src="LOGO MPK SMANTSA_2.png" alt="Logo MPK" class="w-10 h-10 object-contain" onerror="this.src='https://placehold.co/100x100/09090b/eab308?text=MPK'">
                                 </div>
                                 <div class="text-[10px] font-bold tracking-widest text-gold-400 uppercase">SMA NEGERI TANJUNGSARI</div>
                                 <h4 class="font-heading font-black text-xl text-white tracking-tight mt-0.5">PORTAL ASPIRASI</h4>
-                                <div class="inline-block px-3 py-0.5 rounded-full bg-gold-500 text-black font-heading font-extrabold text-xs mt-1 mb-3" id="cardClassBadge">
-                                    KELAS X-1
-                                </div>
-
-                                <!-- QR Code Box -->
+                                <div class="inline-block px-3 py-0.5 rounded-full bg-gold-500 text-black font-heading font-extrabold text-xs mt-1 mb-3" id="cardClassBadge">KELAS X-1</div>
                                 <div class="bg-white p-3 rounded-2xl mx-auto w-44 h-44 flex items-center justify-center shadow-inner">
                                     <img id="qrImage" src="" alt="QR Code Kelas" class="w-full h-full object-contain">
                                 </div>
@@ -463,702 +333,206 @@
             </div>
         </section>
 
-        <!-- ========================================================= -->
-        <!-- TAB 5: PANEL ADMIN / PENGURUS MPK (HIDDEN UNTIL UNLOCKED) -->
-        <!-- ========================================================= -->
-        <section id="tab-admin" class="hidden space-y-6">
-            <div class="bg-cardBg border border-gold-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-800 pb-5">
-                    <div>
-                        <div class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-gold-500/15 text-gold-400 text-[11px] font-bold mb-1">
-                            <i class="fa-solid fa-lock-open"></i>
-                            <span>MODE PENGURUS MPK SMANTSA</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-white">Dashboard Pengelolaan Aspirasi</h2>
-                            <button onclick="renderAdminList(); showToast('Panel diperbarui!');" class="p-2 rounded-xl bg-surface border border-zinc-700 hover:border-gold-500 text-gold-400 text-xs flex items-center space-x-1 transition" title="Refresh Panel">
-                                <i class="fa-solid fa-rotate-right"></i>
-                            </button>
-                        </div>
-                        <p class="text-xs text-zinc-400 mt-1">Kelola status tindak lanjut, beri tanggapan resmi, dan export data ke Google Sheets / Excel.</p>
-                    </div>
-
-                    <div class="flex flex-wrap items-center gap-2">
-                        <button onclick="exportToCSV()" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-heading font-bold text-xs flex items-center space-x-2 shadow transition">
-                            <i class="fa-solid fa-file-excel"></i>
-                            <span>Export CSV / Google Sheets</span>
-                        </button>
-                        <button onclick="openSheetsGuideModal()" class="px-4 py-2.5 rounded-xl bg-surface border border-gold-500/40 hover:bg-gold-500/10 text-gold-400 font-heading font-bold text-xs flex items-center space-x-2 transition">
-                            <i class="fa-solid fa-table"></i>
-                            <span>Sinkron Otomatis Sheets</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Admin Aspirations List -->
-                <div id="adminListContainer" class="space-y-4">
-                    <!-- Populated via JS -->
-                </div>
-            </div>
-        </section>
-
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-zinc-800/80 bg-darkBg py-6 mt-10">
-        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-500">
-            <div class="flex items-center space-x-2">
-                <div class="w-3.5 h-3.5 gold-gradient-bg triangle-clip"></div>
-                <span class="font-heading font-bold text-zinc-300">MPK SMA NEGERI TANJUNGSARI • KABINET MOSAICO '26/27</span>
-            </div>
-            <div class="flex items-center space-x-4">
-                <p>Musyawarah Perwakilan Kelas • ASKO • ASPOSIS • ASPIKA</p>
-                <button onclick="openAdminModal()" class="text-zinc-600 hover:text-gold-400 text-[11px] transition flex items-center space-x-1">
-                    <i class="fa-solid fa-lock text-[10px]"></i>
-                    <span>Pengurus</span>
-                </button>
-            </div>
-        </div>
+    <footer class="bg-surface border-t border-zinc-800 py-6 mt-12 text-center text-xs text-zinc-500">
+        <p>&copy; 2026 MPK SMA Negeri Tanjungsari • Kabinet Mosaico '26/27</p>
     </footer>
 
-    <!-- ========================================================= -->
-    <!-- MODALS                                                    -->
-    <!-- ========================================================= -->
-
-    <!-- 1. Success Submit Modal -->
-    <div id="successModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-        <div class="bg-cardBg border border-gold-500/50 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl space-y-4">
-            <div class="w-16 h-16 rounded-2xl gold-gradient-bg text-black text-2xl flex items-center justify-center mx-auto shadow-lg">
-                <i class="fa-solid fa-check"></i>
-            </div>
-            <h3 class="font-heading text-2xl font-extrabold text-white">Aspirasi Terkirim!</h3>
-            <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                Terima kasih sudah bersuara untuk kemajuan <strong>SMA Negeri Tanjungsari</strong>! Aspirasimu sudah masuk ke sistem MPK dan bisa dipantau progresnya di tab Aspirasi Publik.
-            </p>
-            <button onclick="closeModal('successModal'); switchTab('publik');" class="w-full gold-gradient-bg text-black font-heading font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl shadow hover:brightness-105 transition">
-                Lihat di Aspirasi Publik
-            </button>
-        </div>
-    </div>
-
-    <!-- 2. Admin PIN Login Modal -->
-    <div id="adminLoginModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-        <div class="bg-cardBg border border-zinc-800 rounded-3xl max-w-sm w-full p-6 shadow-2xl space-y-4">
-            <div class="flex items-center justify-between">
-                <h3 class="font-heading text-lg font-extrabold text-white flex items-center space-x-2">
-                    <i class="fa-solid fa-shield-halved text-gold-400"></i>
-                    <span>Akses Pengurus MPK</span>
-                </h3>
-                <button onclick="closeModal('adminLoginModal')" class="text-zinc-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <p class="text-xs text-zinc-400">Masukkan PIN Pengurus MPK SMANTSA untuk mengelola status aspirasi dan mengunduh data Google Sheets.</p>
-            <div>
-                <input type="password" id="adminPinInput" placeholder="Masukkan PIN Pengurus" class="w-full bg-surface border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white text-center font-mono tracking-widest focus:outline-none input-glow">
-                <p id="pinErrorMsg" class="text-xs text-red-400 mt-1.5 hidden text-center">PIN salah! Silakan coba lagi.</p>
-            </div>
-            <button onclick="verifyAdminPin()" class="w-full gold-gradient-bg text-black font-heading font-bold text-xs uppercase tracking-wider py-3 rounded-xl shadow">
-                Masuk Panel Pengurus
-            </button>
-        </div>
-    </div>
-
-    <!-- 3. Google Sheets Webhook & Script Guide Modal -->
-    <div id="sheetsGuideModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-cardBg border border-gold-500/40 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-5 my-8">
-            <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
-                <h3 class="font-heading text-xl font-extrabold text-white flex items-center space-x-2">
-                    <i class="fa-solid fa-table text-emerald-400"></i>
-                    <span>Cara Export ke Google Sheets</span>
-                </h3>
-                <button onclick="closeModal('sheetsGuideModal')" class="text-zinc-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-
-            <div class="space-y-3 text-xs text-zinc-300 leading-relaxed">
-                <div class="bg-surface border border-gold-500/30 rounded-2xl p-4 space-y-2">
-                    <div class="font-heading font-bold text-gold-400 text-sm">💡 Tips Paling Mudah & 100% Work:</div>
-                    <p class="text-zinc-300">
-                        Kamu tidak perlu setup webhook Apps Script yang rumit. Cukup masuk ke <strong>Panel Pengurus MPK</strong> lalu klik tombol hijau <strong>"Export CSV / Google Sheets"</strong>. File `.csv` akan terunduh. Setelah itu, buka <a href="https://sheets.new" target="_blank" class="text-gold-400 underline font-semibold">sheets.new</a>, klik menu <strong>File &rarr; Impor</strong>, lalu upload file CSV tersebut. Selesai! Data aspirasi seluruh kelas langsung masuk rapi ke Google Sheet kalian.
-                    </p>
-                </div>
-
-                <p class="pt-2">Atau jika tetap ingin menggunakan sinkronisasi real-time otomatis via Webhook Apps Script:</p>
-                <ol class="list-decimal list-inside space-y-1.5 text-zinc-400">
-                    <li>Buat Google Sheet baru dengan header kolom: <code class="text-gold-400">ID | Tanggal | Pilar | Kategori | Kelas | Nama | Judul | Pesan | Status</code>.</li>
-                    <li>Buka menu <strong>Ekstensi (Extensions) &rarr; Apps Script</strong>.</li>
-                    <li>Paste kode script di bawah ini, klik <strong>Deploy &rarr; New Deployment &rarr; Web App</strong> (Set akses: <em>Anyone</em> / Siapa saja).</li>
-                    <li>Salin URL Web App yang dihasilkan dan tempel di bawah ini:</li>
-                </ol>
-            </div>
-
-            <!-- Copyable Apps Script -->
-            <div class="relative">
-                <pre id="appsScriptCode" class="bg-black border border-zinc-800 rounded-xl p-3.5 text-[11px] text-emerald-400 font-mono overflow-x-auto">function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  var data = JSON.parse(e.postData.contents);
-  sheet.appendRow([
-    data.id, data.tanggal, data.pilar, data.subKategori, 
-    data.kelas, data.nama, data.judul, data.pesan, data.status
-  ]);
-  return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);
-}</pre>
-                <button onclick="copyAppsScript()" class="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs text-white font-semibold">
-                    <i class="fa-solid fa-copy mr-1"></i> Salin Kode
-                </button>
-            </div>
-
-            <!-- Webhook URL Input -->
-            <div class="space-y-2 pt-2 border-t border-zinc-800">
-                <label class="block text-xs font-bold text-gold-400">URL Webhook Google Apps Script:</label>
-                <div class="flex gap-2">
-                    <input type="url" id="webhookUrlInput" placeholder="https://script.google.com/macros/s/.../exec" class="flex-1 bg-surface border border-zinc-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none input-glow">
-                    <button onclick="saveWebhookUrl()" class="px-4 py-2.5 rounded-xl gold-gradient-bg text-black font-heading font-bold text-xs">Simpan URL</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-surface border border-gold-500/50 text-white px-4 py-3 rounded-2xl shadow-2xl text-xs font-semibold flex items-center space-x-2 transform translate-y-20 opacity-0 transition-all duration-300 z-50">
-        <i class="fa-solid fa-circle-info text-gold-400"></i>
-        <span id="toastMessage">Notifikasi</span>
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-gold-500 text-black font-heading font-bold text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center space-x-2">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMsg">Berhasil!</span>
     </div>
 
-    <!-- JavaScript Application Logic -->
+    <!-- SCRIPT UTAMA & INTEGRASI WEBHOOK -->
     <script>
-        // 1. Generate 36 Classes for SMA Negeri Tanjungsari (X-1..12, XI-1..12, XII-1..12)
-        const angkatanList = ['X', 'XI', 'XII'];
-        const allClasses = [];
-        angkatanList.forEach(tingkat => {
+        const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzLKlB-jym8rjNGTouUWOPKA3gwRLPHyBCthbX7R5IXlc6G2QwRIudIfT9VDXxjWhci/exec";
+
+        const daftarKelas = [];
+        ['X', 'XI', 'XII'].forEach(tingkat => {
             for (let i = 1; i <= 12; i++) {
-                allClasses.push(`${tingkat}-${i}`);
+                daftarKelas.push(`${tingkat}-${i}`);
             }
         });
 
-        function populateClassDropdowns() {
-            const formSelect = document.getElementById('kelas');
-            const filterSelect = document.getElementById('filterKelas');
+        window.addEventListener('DOMContentLoaded', () => {
+            const selectKelas = document.getElementById('kelas');
+            const filterKelas = document.getElementById('filterKelas');
             const qrSelect = document.getElementById('qrClassSelect');
 
-            angkatanList.forEach(tingkat => {
-                const groupForm = document.createElement('optgroup');
-                groupForm.label = `Angkatan Kelas ${tingkat}`;
-                groupForm.className = "bg-zinc-900 text-gold-400 font-bold";
-
-                const groupFilter = document.createElement('optgroup');
-                groupFilter.label = `Kelas ${tingkat}`;
-
-                for (let i = 1; i <= 12; i++) {
-                    const clsName = `${tingkat}-${i}`;
-                    
-                    const opt1 = document.createElement('option');
-                    opt1.value = clsName;
-                    opt1.textContent = `Kelas ${clsName}`;
-                    opt1.className = "bg-zinc-900 text-white font-normal";
-                    groupForm.appendChild(opt1);
-
-                    const opt2 = document.createElement('option');
-                    opt2.value = clsName;
-                    opt2.textContent = `Kelas ${clsName}`;
-                    groupFilter.appendChild(opt2);
-
-                    const opt3 = document.createElement('option');
-                    opt3.value = clsName;
-                    opt3.textContent = `Kelas ${clsName}`;
-                    qrSelect.appendChild(opt3);
-                }
-                formSelect.appendChild(groupForm);
-                filterSelect.appendChild(groupFilter);
+            daftarKelas.forEach(k => {
+                selectKelas.innerHTML += `<option value="${k}">${k}</option>`;
+                filterKelas.innerHTML += `<option value="${k}">Kelas ${k}</option>`;
+                qrSelect.innerHTML += `<option value="${k}">Kelas ${k}</option>`;
             });
 
-            // Auto-select class from URL parameter if accessed via Class QR/NFC tag (?kelas=XI-4)
-            const urlParams = new URLSearchParams(window.location.search);
-            const kelasParam = urlParams.get('kelas');
-            if (kelasParam && allClasses.includes(kelasParam.toUpperCase())) {
-                formSelect.value = kelasParam.toUpperCase();
-                showToast(`Terdeteksi dari Kartu Kelas ${kelasParam.toUpperCase()}!`);
+            syncFromGoogleSheet();
+            updateQrPreview();
+        });
+
+        function switchTab(tabId) {
+            ['kirim', 'publik', 'nfc'].forEach(id => {
+                document.getElementById(`tab-${id}`).classList.add('hidden');
+                document.getElementById(`nav-${id}`).className = "flex-1 md:flex-none px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center space-x-1.5 text-zinc-400 hover:text-white";
+            });
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            document.getElementById(`nav-${tabId}`).className = "flex-1 md:flex-none px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center space-x-1.5 bg-gold-500 text-black shadow-md";
+            
+            if(tabId === 'publik') {
+                syncFromGoogleSheet();
             }
         }
 
-        // 2. Initial Sample Aspirations Data
-        const defaultAspirations = [
-            {
-                id: 101,
-                pilar: 'ASKO',
-                subKategori: 'Sarana & Prasarana Sekolah',
-                kelas: 'XI-4',
-                nama: 'Anonim',
-                judul: 'Perbaikan Proyektor & Kipas Angin Kelas XI-4',
-                pesan: 'Halo MPK MOSAICO, mohon bantu sampaikan ke pihak sarana prasarana sekolah agar proyektor di kelas XI-4 dicek karena warnanya agak memudar saat KBM.',
-                status: 'Diproses MPK',
-                tanggapan: 'Sudah dicatat oleh Komisi Sarpras MPK Kabinet MOSAICO dan akan diajukan pada rapat koordinasi minggu ini.',
-                upvotes: 24,
-                tanggal: '12 Nov 2026'
-            },
-            {
-                id: 102,
-                pilar: 'ASPOSIS',
-                subKategori: 'Ekstrakurikuler',
-                kelas: 'X-7',
-                nama: 'Nadia Putri',
-                judul: 'Usulan Classmeeting & Festival Ekskul Akhir Semester',
-                pesan: 'Keren banget kalau OSIS mengadakan kolaborasi pentas seni antar ekstrakurikuler pas jeda semester nanti biar makin solid!',
-                status: 'Diteruskan ke OSIS',
-                tanggapan: 'Aspirasi sudah diteruskan ke pengurus OSIS bidang Kesenian & Olahraga.',
-                upvotes: 41,
-                tanggal: '11 Nov 2026'
-            },
-            {
-                id: 103,
-                pilar: 'ASPIKA',
-                subKategori: 'Pihak MPK & Kinerja',
-                kelas: 'XII-2',
-                nama: 'Raka Pratama',
-                judul: 'Apresiasi Inovasi Kartu NFC di Tiap Kelas oleh MOSAICO',
-                pesan: 'Mantap banget inovasi kartu QR dan NFC MPK di kelas! Sekarang nyampein aspirasi tinggal tap HP langsung kebuka.',
-                status: 'Selesai',
-                tanggapan: 'Terima kasih banyak atas dukungannya! Kabinet MOSAICO siap menampung seluruh aspirasi SMANTSA.',
-                upvotes: 35,
-                tanggal: '10 Nov 2026'
-            }
-        ];
+        function toggleAnonim() {
+            const isAnonim = document.getElementById('anonimCheck').checked;
+            const namaInput = document.getElementById('nama');
+            namaInput.disabled = isAnonim;
+            namaInput.value = isAnonim ? '' : '';
+            namaInput.placeholder = isAnonim ? 'Dikirim sebagai Anonim' : 'Boleh dikosongkan jika ingin rahasia';
+        }
 
         function getAspirations() {
             const stored = localStorage.getItem('mpk_smantsa_aspirations_v2');
-            if (!stored) {
-                localStorage.setItem('mpk_smantsa_aspirations_v2', JSON.stringify(defaultAspirations));
-                return defaultAspirations;
-            }
-            return JSON.parse(stored);
+            return stored ? JSON.parse(stored) : [];
         }
 
         function saveAspirations(data) {
             localStorage.setItem('mpk_smantsa_aspirations_v2', JSON.stringify(data));
         }
 
-        // 3. Form Helpers
-        function toggleAnonim() {
-            const isAnon = document.getElementById('anonimCheck').checked;
-            const namaInput = document.getElementById('nama');
-            if (isAnon) {
-                namaInput.value = '';
-                namaInput.disabled = true;
-                namaInput.placeholder = 'Identitas dirahasiakan (Anonim)';
-            } else {
-                namaInput.disabled = false;
-                namaInput.placeholder = 'Boleh dikosongkan jika ingin rahasia';
+        // Fungsi Sinkronisasi Data dari Google Sheet ke Semua Perangkat
+        async function syncFromGoogleSheet() {
+            try {
+                const response = await fetch(WEBHOOK_URL);
+                const sheetData = await response.json();
+                
+                if (Array.isArray(sheetData) && sheetData.length > 0) {
+                    const formattedData = sheetData.map((item, index) => ({
+                        id: Date.now() + index,
+                        pilar: item.category ? (item.category.includes('OSIS') ? 'ASPOSIS' : item.category.includes('MPK') ? 'ASPIKA' : 'ASKO') : 'ASKO',
+                        name: item.name || "Anonim",
+                        class: item.class || "-",
+                        category: item.category || "Umum",
+                        judul: item.message ? item.message.split(' - ')[0] : 'Aspirasi Siswa',
+                        message: item.message || "-",
+                        timestamp: item.timestamp || new Date().toLocaleDateString('id-ID'),
+                        upvotes: 0
+                    })).reverse();
+
+                    saveAspirations(formattedData);
+                    renderPublicList();
+                }
+            } catch (error) {
+                console.error("Gagal sinkronisasi dengan Google Sheet:", error);
+                renderPublicList(); // Fallback ke data lokal jika offline
             }
         }
 
-        function updateSubKategori() {
-            const selectedPilar = document.querySelector('input[name="pilar"]:checked').value;
-            const subSelect = document.getElementById('subKategori');
-            if (selectedPilar === 'ASKO') subSelect.value = 'Sarana & Prasarana Sekolah';
-            else if (selectedPilar === 'ASPOSIS') subSelect.value = 'Pihak OSIS & Program Kerja';
-            else if (selectedPilar === 'ASPIKA') subSelect.value = 'Pihak MPK & Kinerja';
-        }
-
+        // Form Submit Kirim Aspirasi (Kirim ke Google Sheet & Local)
         async function handleFormSubmit(e) {
             e.preventDefault();
+            
             const pilar = document.querySelector('input[name="pilar"]:checked').value;
             const kelas = document.getElementById('kelas').value;
-            const isAnon = document.getElementById('anonimCheck').checked;
-            const namaRaw = document.getElementById('nama').value.trim();
-            const nama = (isAnon || namaRaw === '') ? 'Anonim' : namaRaw;
+            const isAnonim = document.getElementById('anonimCheck').checked;
+            const nama = isAnonim ? 'Anonim' : (document.getElementById('nama').value.trim() || 'Anonim');
             const subKategori = document.getElementById('subKategori').value;
-            const judul = document.getElementById('judul').value.trim();
-            const pesan = document.getElementById('pesan').value.trim();
+            const judul = document.getElementById('judul').value;
+            const pesan = document.getElementById('pesan').value;
+            const timestamp = new Date().toLocaleString('id-ID');
 
-            const newEntry = {
-                id: Date.now(),
-                pilar,
-                subKategori,
-                kelas,
-                nama,
-                judul,
-                pesan,
-                status: 'Menunggu',
-                tanggapan: '',
-                upvotes: 1,
-                tanggal: new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' })
+            const payload = {
+                timestamp: timestamp,
+                name: nama,
+                class: kelas,
+                category: `${pilar} - ${subKategori}`,
+                message: `${judul} - ${pesan}`
             };
 
-            const list = getAspirations();
-            list.unshift(newEntry);
-            saveAspirations(list);
+            // Simpan lokal sementara
+            const currentData = getAspirations();
+            currentData.unshift({
+                id: Date.now(),
+                pilar, name: nama, class: kelas, category: subKategori, judul, message: pesan, timestamp, upvotes: 0
+            });
+            saveAspirations(currentData);
 
-            // Optional Webhook Sync to Google Sheets if configured
-            const webhookUrl = localStorage.getItem('mpk_smantsa_webhook');
-            if (webhookUrl) {
-                try {
-                    fetch(webhookUrl, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(newEntry)
-                    });
-                } catch (err) {
-                    console.warn('Webhook sync skipped:', err);
-                }
+            showToast('Mengirim aspirasi ke server...');
+
+            // Kirim ke Google Sheet via Webhook (no-cors agar tidak error CORS)
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (err) {
+                console.error("Gagal kirim background:", err);
             }
 
             document.getElementById('aspirasiForm').reset();
-            toggleAnonim();
-            openModal('successModal');
+            showToast('Aspirasi berhasil dikirim dan disinkronkan!');
+            switchTab('publik');
         }
 
-        // 4. Public Feed & Upvoting
         function renderPublicList() {
-            const list = getAspirations();
-            const pilarFilter = document.getElementById('filterPilar').value;
-            const kelasFilter = document.getElementById('filterKelas').value;
+            const container = document.getElementById('publicListContainer');
+            const filterPilar = document.getElementById('filterPilar').value;
+            const filterKelas = document.getElementById('filterKelas').value;
+            let data = getAspirations();
 
-            // Update Stats Bar
-            const askoCount = list.filter(i => i.pilar === 'ASKO').length;
-            const asposisCount = list.filter(i => i.pilar === 'ASPOSIS').length;
-            const aspikaCount = list.filter(i => i.pilar === 'ASPIKA').length;
+            if (filterPilar !== 'Semua') data = data.filter(d => d.pilar === filterPilar);
+            if (filterKelas !== 'Semua') data = data.filter(d => d.class === filterKelas);
+
+            // Update stats
             document.getElementById('statsBar').innerHTML = `
-                <div class="bg-surface border border-zinc-800 rounded-2xl p-3 text-center">
-                    <div class="text-lg font-heading font-extrabold text-white">${list.length}</div>
-                    <div class="text-[11px] text-zinc-400">Total Aspirasi</div>
-                </div>
-                <div class="bg-surface border border-zinc-800 rounded-2xl p-3 text-center">
-                    <div class="text-lg font-heading font-extrabold text-gold-400">${askoCount}</div>
-                    <div class="text-[11px] text-zinc-400">ASKO (Sekolah)</div>
-                </div>
-                <div class="bg-surface border border-zinc-800 rounded-2xl p-3 text-center">
-                    <div class="text-lg font-heading font-extrabold text-amber-300">${asposisCount}</div>
-                    <div class="text-[11px] text-zinc-400">ASPOSIS (OSIS)</div>
-                </div>
-                <div class="bg-surface border border-zinc-800 rounded-2xl p-3 text-center">
-                    <div class="text-lg font-heading font-extrabold text-yellow-300">${aspikaCount}</div>
-                    <div class="text-[11px] text-zinc-400">ASPIKA (MPK)</div>
-                </div>
+                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">Total Aspirasi</div><div class="text-xl font-heading font-black text-white mt-0.5">${getAspirations().length}</div></div>
+                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">ASKO (Sekolah)</div><div class="text-xl font-heading font-black text-gold-400 mt-0.5">${getAspirations().filter(d=>d.pilar==='ASKO').length}</div></div>
+                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">ASPOSIS (OSIS)</div><div class="text-xl font-heading font-black text-amber-300 mt-0.5">${getAspirations().filter(d=>d.pilar==='ASPOSIS').length}</div></div>
+                <div class="bg-surface border border-zinc-800 rounded-2xl p-4 text-center"><div class="text-xs text-zinc-400">ASPIKA (MPK)</div><div class="text-xl font-heading font-black text-yellow-300 mt-0.5">${getAspirations().filter(d=>d.pilar==='ASPIKA').length}</div></div>
             `;
 
-            const filtered = list.filter(item => {
-                const matchPilar = pilarFilter === 'Semua' || item.pilar === pilarFilter;
-                const matchKelas = kelasFilter === 'Semua' || item.kelas === kelasFilter;
-                return matchPilar && matchKelas;
-            });
-
-            const container = document.getElementById('publicListContainer');
-            if (filtered.length === 0) {
-                container.innerHTML = `<div class="text-center py-10 bg-surface rounded-2xl border border-zinc-800 text-zinc-400 text-sm">Belum ada aspirasi yang sesuai dengan filter ini.</div>`;
+            if (data.length === 0) {
+                container.innerHTML = `<div class="text-center py-12 text-zinc-500 bg-surface border border-zinc-800/60 rounded-2xl"><i class="fa-solid fa-inbox text-3xl mb-2"></i><p>Belum ada aspirasi untuk filter ini.</p></div>`;
                 return;
             }
 
-            const upvotedIds = JSON.parse(localStorage.getItem('mpk_upvoted_ids') || '[]');
-
-            container.innerHTML = filtered.map(item => {
-                const isUpvoted = upvotedIds.includes(item.id);
-                const statusColors = {
-                    'Menunggu': 'bg-zinc-800 text-zinc-300 border-zinc-700',
-                    'Diproses MPK': 'bg-gold-500/15 text-gold-400 border-gold-500/30',
-                    'Diteruskan ke OSIS': 'bg-blue-500/15 text-blue-400 border-blue-500/30',
-                    'Diteruskan ke Sekolah': 'bg-purple-500/15 text-purple-400 border-purple-500/30',
-                    'Selesai': 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30'
-                };
-                const badgeClass = statusColors[item.status] || statusColors['Menunggu'];
-
-                return `
-                <div class="bg-surface border border-zinc-800/90 hover:border-gold-500/40 rounded-2xl p-5 transition-all space-y-3">
-                    <div class="flex flex-wrap items-center justify-between gap-2">
+            container.innerHTML = data.map(item => `
+                <div class="bg-surface border border-zinc-800 rounded-2xl p-5 space-y-3 shadow-md">
+                    <div class="flex items-center justify-between text-xs">
                         <div class="flex items-center space-x-2">
-                            <span class="px-2.5 py-0.5 rounded-lg bg-gold-500 text-black font-heading font-extrabold text-[11px]">${escapeHtml(item.pilar)}</span>
-                            <span class="px-2.5 py-0.5 rounded-lg bg-zinc-800 text-zinc-300 font-semibold text-[11px]">Kelas ${escapeHtml(item.kelas)}</span>
-                            <span class="text-xs text-zinc-400 hidden sm:inline">• ${escapeHtml(item.subKategori)}</span>
+                            <span class="px-2.5 py-0.5 rounded-lg bg-gold-500/10 text-gold-400 font-bold">${item.pilar}</span>
+                            <span class="text-zinc-400">• Kelas ${item.class}</span>
+                            <span class="text-zinc-500">• ${item.name}</span>
                         </div>
-                        <span class="px-2.5 py-1 rounded-full border text-[11px] font-semibold ${badgeClass}">${escapeHtml(item.status)}</span>
-                    </div>
-
-                    <div>
-                        <h3 class="font-heading font-bold text-white text-base sm:text-lg">${escapeHtml(item.judul)}</h3>
-                        <p class="text-xs sm:text-sm text-zinc-300 mt-1 leading-relaxed">${escapeHtml(item.pesan)}</p>
-                    </div>
-
-                    ${item.tanggapan ? `
-                    <div class="bg-cardBg border-l-2 border-gold-500 rounded-r-xl p-3 text-xs space-y-1">
-                        <div class="font-heading font-bold text-gold-400"><i class="fa-solid fa-reply mr-1"></i> Tanggapan Pengurus MPK MOSAICO:</div>
-                        <p class="text-zinc-300">${escapeHtml(item.tanggapan)}</p>
-                    </div>
-                    ` : ''}
-
-                    <div class="flex items-center justify-between pt-2 border-t border-zinc-800/80 text-xs text-zinc-400">
-                        <div>
-                            <span>Oleh <strong class="text-zinc-200">${escapeHtml(item.nama)}</strong></span>
-                            <span class="mx-1.5">•</span>
-                            <span>${escapeHtml(item.tanggal)}</span>
-                        </div>
-                        <button onclick="toggleUpvote(${item.id})" class="px-3 py-1.5 rounded-xl border transition-all flex items-center space-x-1.5 font-semibold ${isUpvoted ? 'bg-gold-500 text-black border-gold-500' : 'bg-cardBg text-zinc-300 border-zinc-700 hover:border-gold-500'}">
-                            <i class="fa-solid fa-thumbs-up"></i>
-                            <span>Setuju (${item.upvotes || 0})</span>
-                        </button>
-                    </div>
-                </div>
-                `;
-            }).join('');
-        }
-
-        function toggleUpvote(id) {
-            let upvotedIds = JSON.parse(localStorage.getItem('mpk_upvoted_ids') || '[]');
-            const list = getAspirations();
-            const idx = list.findIndex(i => i.id === id);
-            if (idx === -1) return;
-
-            if (upvotedIds.includes(id)) {
-                upvotedIds = upvotedIds.filter(uid => uid !== id);
-                list[idx].upvotes = Math.max(0, (list[idx].upvotes || 1) - 1);
-            } else {
-                upvotedIds.push(id);
-                list[idx].upvotes = (list[idx].upvotes || 0) + 1;
-            }
-            localStorage.setItem('mpk_upvoted_ids', JSON.stringify(upvotedIds));
-            saveAspirations(list);
-            renderPublicList();
-        }
-
-        // 5. QR & NFC Generator
-        function updateQrPreview() {
-            const selectedClass = document.getElementById('qrClassSelect').value || 'X-1';
-            const baseUrl = document.getElementById('qrUrlInput').value.trim() || 'https://aspirasi-mpk-smantsa.vercel.app';
-            const fullUrl = `${baseUrl}?kelas=${encodeURIComponent(selectedClass)}`;
-            
-            document.getElementById('cardClassBadge').textContent = `KELAS ${selectedClass}`;
-            document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(fullUrl)}&color=09090b&bgcolor=ffffff`;
-        }
-
-        function copyClassLink() {
-            const selectedClass = document.getElementById('qrClassSelect').value || 'X-1';
-            const baseUrl = document.getElementById('qrUrlInput').value.trim() || 'https://aspirasi-mpk-smantsa.vercel.app';
-            const fullUrl = `${baseUrl}?kelas=${encodeURIComponent(selectedClass)}`;
-            copyTextToClipboard(fullUrl);
-            showToast(`Link NFC untuk Kelas ${selectedClass} berhasil disalin!`);
-        }
-
-        // 6. Admin MPK Panel & CSV / Google Sheets Export
-        let isAdminAuthenticated = false;
-        let logoClickCount = 0;
-
-        function checkSecretAdminTrigger() {
-            logoClickCount++;
-            if (logoClickCount >= 3) {
-                logoClickCount = 0;
-                openAdminModal();
-            }
-            setTimeout(() => { logoClickCount = 0; }, 3000);
-        }
-
-        function openAdminModal() {
-            if (isAdminAuthenticated) {
-                switchTab('admin');
-                return;
-            }
-            document.getElementById('pinErrorMsg').classList.add('hidden');
-            document.getElementById('adminPinInput').value = '';
-            openModal('adminLoginModal');
-        }
-
-        function verifyAdminPin() {
-            const pin = document.getElementById('adminPinInput').value.trim();
-            if (pin === 'SMANTSA2026' || pin === 'mpksmantsa') {
-                isAdminAuthenticated = true;
-                closeModal('adminLoginModal');
-                switchTab('admin');
-                showToast('Selamat datang di Panel Pengurus MPK MOSAICO!');
-            } else {
-                document.getElementById('pinErrorMsg').classList.remove('hidden');
-            }
-        }
-
-        function renderAdminList() {
-            const list = getAspirations();
-            const container = document.getElementById('adminListContainer');
-
-            container.innerHTML = list.map(item => `
-                <div class="bg-surface border border-zinc-800 rounded-2xl p-5 space-y-3">
-                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800 pb-2.5">
-                        <div class="flex items-center space-x-2">
-                            <span class="px-2.5 py-0.5 rounded-lg bg-gold-500 text-black font-heading font-extrabold text-xs">${escapeHtml(item.pilar)}</span>
-                            <span class="text-xs font-bold text-white">Kelas ${escapeHtml(item.kelas)}</span>
-                            <span class="text-xs text-zinc-400">(${escapeHtml(item.nama)} • ${escapeHtml(item.tanggal)})</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <select onchange="updateItemStatus(${item.id}, this.value)" class="bg-cardBg border border-zinc-700 rounded-lg px-2.5 py-1 text-xs text-gold-400 font-semibold focus:outline-none">
-                                <option value="Menunggu" ${item.status === 'Menunggu' ? 'selected' : ''}>Menunggu</option>
-                                <option value="Diproses MPK" ${item.status === 'Diproses MPK' ? 'selected' : ''}>Diproses MPK</option>
-                                <option value="Diteruskan ke OSIS" ${item.status === 'Diteruskan ke OSIS' ? 'selected' : ''}>Diteruskan ke OSIS</option>
-                                <option value="Diteruskan ke Sekolah" ${item.status === 'Diteruskan ke Sekolah' ? 'selected' : ''}>Diteruskan ke Sekolah</option>
-                                <option value="Selesai" ${item.status === 'Selesai' ? 'selected' : ''}>Selesai</option>
-                            </select>
-                            <button onclick="deleteAspiration(${item.id})" class="p-1.5 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500/20 text-xs" title="Hapus Aspirasi">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
+                        <span class="text-zinc-500">${item.timestamp}</span>
                     </div>
                     <div>
-                        <div class="text-[11px] text-gold-400 font-semibold">${escapeHtml(item.subKategori)}</div>
-                        <h4 class="font-heading font-bold text-white text-base">${escapeHtml(item.judul)}</h4>
-                        <p class="text-xs text-zinc-300 mt-1">${escapeHtml(item.pesan)}</p>
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-2 pt-2">
-                        <input type="text" id="reply-${item.id}" value="${escapeHtml(item.tanggapan || '')}" placeholder="Tulis tanggapan resmi MPK di sini..." class="flex-1 bg-cardBg border border-zinc-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none input-glow">
-                        <button onclick="saveAdminReply(${item.id})" class="px-4 py-2 rounded-xl bg-gold-500 text-black font-heading font-bold text-xs hover:brightness-105 transition">
-                            Simpan Tanggapan
-                        </button>
+                        <h4 class="font-heading font-bold text-white text-base">${item.judul || 'Aspirasi Siswa'}</h4>
+                        <p class="text-xs text-zinc-300 mt-1 leading-relaxed">${item.message}</p>
                     </div>
                 </div>
             `).join('');
         }
 
-        function updateItemStatus(id, newStatus) {
-            const list = getAspirations();
-            const idx = list.findIndex(i => i.id === id);
-            if (idx !== -1) {
-                list[idx].status = newStatus;
-                saveAspirations(list);
-                showToast(`Status diperbarui menjadi: ${newStatus}`);
-            }
-        }
-
-        function saveAdminReply(id) {
-            const replyText = document.getElementById(`reply-${id}`).value.trim();
-            const list = getAspirations();
-            const idx = list.findIndex(i => i.id === id);
-            if (idx !== -1) {
-                list[idx].tanggapan = replyText;
-                saveAspirations(list);
-                showToast('Tanggapan resmi MPK tersimpan!');
-            }
-        }
-
-        function deleteAspiration(id) {
-            const list = getAspirations().filter(i => i.id !== id);
-            saveAspirations(list);
-            renderAdminList();
-            showToast('Aspirasi dihapus.');
-        }
-
-        function exportToCSV() {
-            const list = getAspirations();
-            const headers = ['ID', 'Tanggal', 'Pilar', 'Kategori', 'Kelas', 'Nama Pengirim', 'Judul', 'Isi Aspirasi', 'Status', 'Tanggapan MPK MOSAICO', 'Upvote'];
-            const rows = list.map(i => [
-                i.id,
-                `"${i.tanggal}"`,
-                `"${i.pilar}"`,
-                `"${i.subKategori}"`,
-                `"${i.kelas}"`,
-                `"${i.nama.replace(/"/g, '""')}"`,
-                `"${i.judul.replace(/"/g, '""')}"`,
-                `"${i.pesan.replace(/"/g, '""')}"`,
-                `"${i.status}"`,
-                `"${(i.tanggapan || '').replace(/"/g, '""')}"`,
-                i.upvotes || 0
-            ]);
-
-            const csvContent = "data:text/csv;charset=utf-8," + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", `Data_Aspirasi_MPK_MOSAICO_${new Date().toISOString().slice(0,10)}.csv`);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            showToast('File CSV berhasil diunduh! Siap dibuka di Google Sheets / Excel.');
-        }
-
-        function openSheetsGuideModal() {
-            document.getElementById('webhookUrlInput').value = localStorage.getItem('mpk_smantsa_webhook') || '';
-            openModal('sheetsGuideModal');
-        }
-
-        function saveWebhookUrl() {
-            const url = document.getElementById('webhookUrlInput').value.trim();
-            localStorage.setItem('mpk_smantsa_webhook', url);
-            closeModal('sheetsGuideModal');
-            showToast(url ? 'URL Webhook Google Sheets berhasil disimpan!' : 'URL Webhook dihapus.');
-        }
-
-        function copyAppsScript() {
-            const code = document.getElementById('appsScriptCode').textContent;
-            copyTextToClipboard(code);
-            showToast('Kode Google Apps Script berhasil disalin!');
-        }
-
-        // 7. Navigation & UI Utilities
-        function switchTab(tabId) {
-            ['kirim', 'publik', 'nfc', 'admin'].forEach(id => {
-                const section = document.getElementById(`tab-${id}`);
-                if (section) section.classList.add('hidden');
-                const navBtn = document.getElementById(`nav-${id}`);
-                if (navBtn) {
-                    navBtn.className = "flex-1 md:flex-none px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center space-x-1.5 text-zinc-400 hover:text-white";
-                }
-            });
-
-            const activeSection = document.getElementById(`tab-${tabId}`);
-            if (activeSection) activeSection.classList.remove('hidden');
-
-            const activeBtn = document.getElementById(`nav-${tabId}`);
-            if (activeBtn) {
-                activeBtn.className = "flex-1 md:flex-none px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center space-x-1.5 bg-gold-500 text-black shadow-md";
-            }
-
-            if (tabId === 'publik') renderPublicList();
-            if (tabId === 'nfc') updateQrPreview();
-            if (tabId === 'admin') renderAdminList();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function openModal(id) {
-            const m = document.getElementById(id);
-            m.classList.remove('hidden');
-            m.classList.add('flex');
-        }
-
-        function closeModal(id) {
-            const m = document.getElementById(id);
-            m.classList.add('hidden');
-            m.classList.remove('flex');
+        function updateQrPreview() {
+            const selectedClass = document.getElementById('qrClassSelect').value;
+            const baseUrl = document.getElementById('qrUrlInput').value.trim();
+            const fullUrl = `${baseUrl}/?kelas=${selectedClass}`;
+            
+            document.getElementById('cardClassBadge').innerText = `KELAS ${selectedClass}`;
+            document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(fullUrl)}`;
         }
 
         function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastMessage').textContent = msg;
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3200);
+            const t = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            t.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => { t.classList.add('translate-y-20', 'opacity-0'); }, 3000);
         }
-
-        function copyTextToClipboard(text) {
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textArea);
-        }
-
-        function escapeHtml(str) {
-            if (!str) return '';
-            return String(str)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
-        }
-
-        // Initialize on load
-        window.addEventListener('DOMContentLoaded', () => {
-            populateClassDropdowns();
-            updateQrPreview();
-
-            // Support secret hash #admin in URL
-            if (window.location.hash === '#admin') {
-                openAdminModal();
-            }
-        });
     </script>
 </body>
 </html>
